@@ -11,24 +11,16 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to Signer!
+          Welcome!
         </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
 
         <div className={styles.grid}>
           <a className={styles.card}>
-            <Link href="/greetings"><h2>Greetings!</h2></Link>
+            <Link href="/sign"><h2>Sign Message</h2></Link>
           </a>
-
           <a className={styles.card}>
-            <Link href="/sign"><h2>Signer!</h2></Link>
+            <Link href="/verify"><h2>Verify Signer</h2></Link>
           </a>
-
-          
         </div>
       </main>
 
