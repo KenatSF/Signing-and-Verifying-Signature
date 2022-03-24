@@ -96,7 +96,7 @@ export default function Verify() {
             <div className={styles.container}>
                 <main className={styles.main}>
                     <h4 className={styles.title}>
-                        Connected!
+                        Verify
                     </h4>
                     <div className="w-1/2 flex flex-col pb-12">
                         <input

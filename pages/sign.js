@@ -110,7 +110,7 @@ export default function Sign() {
                 <div className={styles.container}>
                     <main className={styles.main}>
                         <h4 className={styles.title}>
-                            Connected!
+                            Sign
                         </h4>
                         <div className="w-1/2 flex flex-col pb-12">
                             <input
@@ -153,7 +153,7 @@ export default function Sign() {
                 <div className={styles.container}>
                     <main className={styles.main}>
                         <h4 className={styles.title}>
-                            Connected!
+                            Sign
                         </h4>
                         <div className={styles.grid}>
                             <div className="mt-8 rounded p-4">
