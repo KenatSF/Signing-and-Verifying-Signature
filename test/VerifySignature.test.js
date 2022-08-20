@@ -23,6 +23,10 @@ contract("Verify Signature", () => {
     var _message = "Hellow World!";
     var _nonce = 1
 
+    // Just in case: Remember, get the hash of the message first
+    //                Sign the hash with your account either with web3.js or ethers.js
+    //                Finally, recover the signer with ecrecover() inside the contract making use of Solidity.
+
     console.log('-------------------------------------------------------------------------------');
     console.log("Getting message Hash.")
     const hash = await verify.getMessageHash(_address, _amount, _message, _nonce, {from: accounts[0]});
@@ -48,15 +52,22 @@ contract("Verify Signature", () => {
 
     console.log('-------------------------------------------------------------------------------');
     console.log("Signing ANOTHER message Hash.")
-    const signed_hash1 = await web3.eth.accounts.sign(hash1, process.env.PRIVATE_KEY_ACCOUNT_0);
+    const signed_hash1 = await web3.eth.accounts.sign(hash, process.env.PRIVATE_KEY_ACCOUNT_0);
     console.log(signed_hash1.signature);
     console.log(" ");
     
 
+
+    console.log('-------------------------------------------------------------------------------');     // Note: The last byte is different.
+    console.log("Verifying signer!");
+    const signer = await verify.verifySigner(_address, _amount, _message, _nonce, signed_hash, {from: accounts[9]});
+    console.log(`Signer: ${signer}`);
+    console.log(" ");
+
     console.log('-------------------------------------------------------------------------------');
     console.log("Verifying signer!");
-    const signer = await verify.verifySigner(_address, _amount, _message, _nonce, signed_hash1.signature, {from: accounts[9]});
-    console.log(`Signer: ${signer}`);
+    const signer1 = await verify.verifySigner(_address, _amount, _message, _nonce, signed_hash1.signature, {from: accounts[9]});
+    console.log(`Signer: ${signer1}`);
     console.log(" ");
 
   
